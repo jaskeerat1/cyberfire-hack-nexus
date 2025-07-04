@@ -10,15 +10,47 @@ const Contact = () => {
     message: ''
   });
 
+  const sanitizeInput = (value: string): string => {
+    return value.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+                .replace(/[<>]/g, '')
+                .trim();
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    const sanitizedValue = sanitizeInput(value);
+    
+    // Input length validation
+    const maxLengths = { name: 100, email: 150, message: 1000 };
+    if (sanitizedValue.length > maxLengths[name as keyof typeof maxLengths]) {
+      return;
+    }
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: sanitizedValue
     });
+  };
+
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Client-side validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      console.error('All fields are required');
+      return;
+    }
+    
+    if (!validateEmail(formData.email)) {
+      console.error('Please enter a valid email address');
+      return;
+    }
+    
     // Handle form submission
     console.log('Form submitted:', formData);
   };
@@ -83,13 +115,13 @@ const Contact = () => {
             <div>
               <h4 className="font-orbitron font-semibold text-foreground mb-4">Follow Us</h4>
               <div className="flex gap-4">
-                <a href="#" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+                <a href="#" rel="noopener noreferrer" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
                   <span className="text-primary">in</span>
                 </a>
-                <a href="#" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+                <a href="#" rel="noopener noreferrer" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
                   <span className="text-primary">gh</span>
                 </a>
-                <a href="#" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+                <a href="#" rel="noopener noreferrer" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
                   <span className="text-primary">ig</span>
                 </a>
               </div>
