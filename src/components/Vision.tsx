@@ -29,8 +29,8 @@ const Vision = () => {
           <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-primary mb-6">
             Our Vision
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-8"></div>
-          <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8"></div>
+          <p className="text-xl text-subheading max-w-3xl mx-auto">
             Empowering the next generation of tech innovators through collaboration, 
             mentorship, and cutting-edge challenges.
           </p>
@@ -43,7 +43,7 @@ const Vision = () => {
               <h3 className="text-xl font-orbitron font-semibold text-foreground mb-4">
                 {item.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-accessible leading-relaxed">
                 {item.description}
               </p>
             </div>

@@ -56,6 +56,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// New accessible color tokens
+				subheading: 'hsl(var(--subheading))',
+				link: {
+					DEFAULT: 'hsl(var(--link))',
+					hover: 'hsl(var(--link-hover))'
+				},
+				success: 'hsl(var(--success))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

@@ -47,26 +47,26 @@ const Hero = () => {
         </h1>
         
         {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-foreground/80 mb-2">
+        <p className="text-xl md:text-2xl text-subheading mb-2">
           Premier Student-Led Hackathon
         </p>
-        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-muted-accessible mb-8 max-w-2xl mx-auto">
           Join the ultimate coding adventure where innovation meets collaboration. 
           Presented by Geek Room GTBIT.
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="btn-cyber text-lg px-8 py-4">
+          <Button size="lg" className="btn-primary text-lg px-8 py-4">
             Register Now
           </Button>
-          <Button size="lg" variant="outline" className="btn-flame text-lg px-8 py-4">
+          <Button size="lg" className="btn-secondary text-lg px-8 py-4">
             Learn More
           </Button>
         </div>
 
         {/* Event info */}
-        <div className="mt-12 flex flex-col sm:flex-row gap-8 justify-center items-center text-muted-foreground">
+        <div className="mt-12 flex flex-col sm:flex-row gap-8 justify-center items-center text-muted-accessible">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-secondary rounded-full"></div>
             <span className="font-orbitron">48 Hours</span>

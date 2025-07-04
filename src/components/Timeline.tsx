@@ -57,8 +57,8 @@ const Timeline = () => {
           <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-primary mb-6">
             Event Timeline
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-8"></div>
-          <p className="text-xl text-foreground/80">
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8"></div>
+          <p className="text-xl text-subheading">
             48 hours of intense coding, learning, and innovation
           </p>
         </div>
@@ -98,7 +98,7 @@ const Timeline = () => {
                         {event.time}
                       </span>
                     </div>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-accessible">
                       {event.description}
                     </p>
                   </div>
