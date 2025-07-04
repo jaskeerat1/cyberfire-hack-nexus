@@ -2,104 +2,169 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Hack Odyssey Design System - Cyberpunk x Firefighter Theme
+All colors MUST be HSL. 
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core cyberpunk colors */
+    --background: 240 40% 4%;
+    --foreground: 188 100% 75%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 240 30% 8%;
+    --card-foreground: 188 100% 75%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 30% 8%;
+    --popover-foreground: 188 100% 75%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Neon blue primary */
+    --primary: 188 100% 50%;
+    --primary-foreground: 240 40% 4%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Orange accent */
+    --secondary: 24 100% 50%;
+    --secondary-foreground: 240 40% 4%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted purple */
+    --muted: 258 30% 25%;
+    --muted-foreground: 188 50% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Purple accent */
+    --accent: 258 75% 65%;
+    --accent-foreground: 240 40% 4%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 258 30% 25%;
+    --input: 240 30% 12%;
+    --ring: 188 100% 50%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Cyberpunk gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(188 100% 50%), hsl(258 75% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(24 100% 50%), hsl(0 84% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 40% 4%) 0%, hsl(258 30% 8%) 50%, hsl(240 30% 8%) 100%);
+    
+    /* Cyberpunk shadows */
+    --shadow-neon: 0 0 20px hsl(188 100% 50% / 0.3);
+    --shadow-orange: 0 0 20px hsl(24 100% 50% / 0.3);
+    --shadow-purple: 0 0 20px hsl(258 75% 65% / 0.3);
+    --shadow-card: 0 8px 32px hsl(240 40% 4% / 0.8);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: box-shadow 0.3s ease-in-out;
   }
 }
 
+@layer components {
+  /* Typography */
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+  
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Cyberpunk button variants */
+  .btn-cyber {
+    @apply relative overflow-hidden rounded border-2 border-primary bg-transparent px-6 py-3 font-orbitron font-bold text-primary transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:shadow-[0_0_20px_hsl(188_100%_50%_/_0.4)] active:scale-95;
+  }
+  
+  .btn-flame {
+    @apply relative overflow-hidden rounded border-2 border-secondary bg-transparent px-6 py-3 font-orbitron font-bold text-secondary transition-all duration-300 hover:bg-secondary hover:text-secondary-foreground hover:shadow-[0_0_20px_hsl(24_100%_50%_/_0.4)] active:scale-95;
+  }
+  
+  /* Card styles */
+  .card-cyber {
+    @apply rounded-lg border border-border/20 bg-card/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_8px_32px_hsl(240_40%_4%_/_0.8),_0_0_20px_hsl(188_100%_50%_/_0.1)];
+  }
+  
+  /* HUD elements */
+  .hud-line {
+    @apply h-px bg-gradient-to-r from-transparent via-primary to-transparent;
+  }
+  
+  .hud-corner::before {
+    content: '';
+    @apply absolute -top-2 -left-2 h-4 w-4 border-l-2 border-t-2 border-primary;
+  }
+  
+  .hud-corner::after {
+    content: '';
+    @apply absolute -bottom-2 -right-2 h-4 w-4 border-b-2 border-r-2 border-primary;
+  }
+  
+  /* Glitch text effect */
+  .text-glitch {
+    position: relative;
+  }
+  
+  .text-glitch::before,
+  .text-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .text-glitch::before {
+    animation: glitch-1 1s infinite;
+    color: hsl(var(--secondary));
+    z-index: -1;
+  }
+  
+  .text-glitch::after {
+    animation: glitch-2 1s infinite;
+    color: hsl(var(--accent));
+    z-index: -2;
+  }
+  
+  /* Pulse animation for loading states */
+  .pulse-cyber {
+    animation: pulse-cyber 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes glitch-1 {
+  0%, 100% { clip-path: inset(0 0 0 0); }
+  20% { clip-path: inset(0.5em 0 0.3em 0); }
+  40% { clip-path: inset(0.2em 0 0.8em 0); }
+  60% { clip-path: inset(0.7em 0 0.1em 0); }
+  80% { clip-path: inset(0.1em 0 0.6em 0); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { clip-path: inset(0 0 0 0); }
+  10% { clip-path: inset(0.3em 0 0.7em 0); }
+  30% { clip-path: inset(0.8em 0 0.2em 0); }
+  50% { clip-path: inset(0.1em 0 0.9em 0); }
+  70% { clip-path: inset(0.6em 0 0.4em 0); }
+  90% { clip-path: inset(0.4em 0 0.6em 0); }
+}
+
+@keyframes pulse-cyber {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.2);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.4);
+  }
+}
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
   }
 }
