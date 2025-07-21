@@ -1,58 +1,26 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import React from "react";
+import { Linkedin, Instagram, Twitter, Github, MessageCircle } from "lucide-react";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+export default function Contact() {
+  const [result, setResult] = React.useState("");
 
-  const sanitizeInput = (value: string): string => {
-    return value.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-                .replace(/[<>]/g, '')
-                .trim();
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    const sanitizedValue = sanitizeInput(value);
-    
-    // Input length validation
-    const maxLengths = { name: 100, email: 150, message: 1000 };
-    if (sanitizedValue.length > maxLengths[name as keyof typeof maxLengths]) {
-      return;
-    }
-    
-    setFormData({
-      ...formData,
-      [name]: sanitizedValue
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target as HTMLFormElement);
+    formData.append("access_key", "8eb4c7a1-5460-4614-9591-034b0616617f");
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
     });
-  };
-
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Client-side validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      console.error('All fields are required');
-      return;
+    const data = await response.json();
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      (event.target as HTMLFormElement).reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
     }
-    
-    if (!validateEmail(formData.email)) {
-      console.error('Please enter a valid email address');
-      return;
-    }
-    
-    // Handle form submission
-    console.log('Form submitted:', formData);
   };
 
   return (
@@ -67,131 +35,61 @@ const Contact = () => {
             Have questions about Hack Odyssey? We're here to help!
           </p>
         </div>
-
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-orbitron font-semibold text-foreground mb-6">
-              Contact Information
-            </h3>
-            
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-primary">📧</span>
-                </div>
-                <div>
-                  <h4 className="font-orbitron font-semibold text-foreground mb-1">Email</h4>
-                  <a href="mailto:collab.geekroom@gmail.com" className="text-primary hover:text-primary/80 transition-colors">
-                    collab.geekroom@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-secondary">📱</span>
-                </div>
-                <div>
-                  <h4 className="font-orbitron font-semibold text-foreground mb-1">Phone</h4>
-                  <a href="tel:+919315842762" className="text-secondary hover:text-secondary/80 transition-colors">
-                    +91 9315842762
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-accent">🏢</span>
-                </div>
-                <div>
-                  <h4 className="font-orbitron font-semibold text-foreground mb-1">Organization</h4>
-                  <p className="text-muted-foreground">Geek Room GTBIT</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Social Media */}
-            <div>
-              <h4 className="font-orbitron font-semibold text-foreground mb-4">Follow Us</h4>
-              <div className="flex gap-4">
-                <a href="#" rel="noopener noreferrer" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
-                  <span className="text-primary">in</span>
-                </a>
-                <a href="#" rel="noopener noreferrer" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
-                  <span className="text-primary">gh</span>
-                </a>
-                <a href="#" rel="noopener noreferrer" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
-                  <span className="text-primary">ig</span>
-                </a>
-              </div>
-            </div>
+        <div className="max-w-xl mx-auto bg-background/80 rounded-xl shadow-lg p-8">
+          <form onSubmit={onSubmit} className="flex flex-col gap-6">
+            <input
+              type="text"
+              name="name"
+              required
+              placeholder="Your Name"
+              className="w-full px-4 py-3 rounded-lg border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Your Email"
+              className="w-full px-4 py-3 rounded-lg border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            <textarea
+              name="message"
+              required
+              placeholder="Your Message"
+              className="w-full px-4 py-3 rounded-lg border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-primary min-h-[120px]"
+            ></textarea>
+            <button
+              type="submit"
+              className="btn-primary px-8 py-3 rounded-lg font-orbitron font-bold text-lg shadow hover:scale-105 transition-all"
+            >
+              Submit Form
+            </button>
+          </form>
+          <span className="block mt-4 text-center text-primary font-semibold min-h-[1.5em]">{result}</span>
+        </div>
+        {/* ...rest of the Contact section: socials, WhatsApp, etc. ... */}
+        <div className="mt-12 text-center">
+          <h4 className="text-lg font-orbitron font-semibold text-primary mb-4">Follow Us</h4>
+          <div className="flex gap-3 justify-center">
+            <a href="https://x.com/geekroomgtbit?s=21" rel="noopener noreferrer" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+              <span className="text-primary"><Twitter /></span>
+            </a>
+            <a href="https://www.instagram.com/geekroom_gtbit?igsh=end6aGIyMG1icmhv&utm_source=qr" rel="noopener noreferrer" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+              <span className="text-primary"><Instagram /></span>
+            </a>
           </div>
-
-          {/* Contact Form */}
-          <div className="card-cyber">
-            <h3 className="text-2xl font-orbitron font-semibold text-foreground mb-6">
-              Send us a Message
-            </h3>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-orbitron font-medium text-foreground mb-2">
-                  Name
-                </label>
-                <Input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your full name"
-                  className="bg-input/50 border-border/50 text-foreground placeholder:text-muted-foreground focus:border-primary"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-orbitron font-medium text-foreground mb-2">
-                  Email
-                </label>
-                <Input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="your.email@example.com"
-                  className="bg-input/50 border-border/50 text-foreground placeholder:text-muted-foreground focus:border-primary"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-orbitron font-medium text-foreground mb-2">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your message..."
-                  rows={5}
-                  className="bg-input/50 border-border/50 text-foreground placeholder:text-muted-foreground focus:border-primary resize-none"
-                />
-              </div>
-
-              <Button type="submit" className="btn-cyber w-full">
-                Send Message
-              </Button>
-            </form>
-          </div>
+        </div>
+        <div className="flex justify-center mt-8 mb-2">
+          <a
+            href="https://chat.whatsapp.com/DSDffqnNRtRDTRHgCNfwJi?mode=r_t"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary text-secondary-foreground font-orbitron font-bold shadow hover:bg-secondary/90 transition-all text-base"
+          >
+            <img src="https://images.seeklogo.com/logo-png/16/2/whatsapp-logo-png_seeklogo-168310.png" className="w-6" />
+            Join our WhatsApp Community
+          </a>
         </div>
       </div>
     </section>
   );
-};
-
-export default Contact;
+}

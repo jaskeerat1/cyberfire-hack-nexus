@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 
+const NAVBAR_HEIGHT = 64; // 4rem
+
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative flex items-center justify-center overflow-hidden min-h-[calc(100vh-4rem)] pt-16">
       {/* Background with cyberpunk gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-card to-background">
         {/* Animated grid pattern */}
@@ -31,7 +33,7 @@ const Hero = () => {
       <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
         {/* Status text */}
         <div className="mb-8">
-          <p className="text-sm font-orbitron text-primary/80 uppercase tracking-wide mb-2">
+          <p className="text-sm font-orbitron text-secondary uppercase tracking-wide mb-2">
             INITIATING YOUR HACKING MISSION...
           </p>
           <div className="flex justify-center">
@@ -46,12 +48,12 @@ const Hero = () => {
           HACK ODYSSEY
         </h1>
         
-        {/* Subtitle */}
+        {/* Subtitle with orange accent */}
         <p className="text-xl md:text-2xl text-subheading mb-2">
-          Premier Student-Led Hackathon
+          Premier Student-Led <span className="text-secondary font-bold">Hackathon</span>
         </p>
         <p className="text-lg md:text-xl text-muted-accessible mb-8 max-w-2xl mx-auto">
-          Join the ultimate coding adventure where innovation meets collaboration. 
+          Join the ultimate coding adventure where <span className="text-secondary font-semibold">innovation</span> meets collaboration. 
           Presented by Geek Room GTBIT.
         </p>
 
@@ -69,7 +71,7 @@ const Hero = () => {
         <div className="mt-12 flex flex-col sm:flex-row gap-8 justify-center items-center text-muted-accessible">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-secondary rounded-full"></div>
-            <span className="font-orbitron">48 Hours</span>
+            <span className="font-orbitron text-secondary font-bold">48 Hours</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-accent rounded-full"></div>
@@ -79,13 +81,6 @@ const Hero = () => {
             <div className="w-2 h-2 bg-primary rounded-full"></div>
             <span className="font-orbitron">₹50,000+ Prizes</span>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
     </section>

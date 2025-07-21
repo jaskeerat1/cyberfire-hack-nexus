@@ -16,6 +16,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { useEffect, useRef } from "react";
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -174,6 +175,21 @@ const Sidebar = React.forwardRef<
     ref
   ) => {
     const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
+    const sidebarRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        const scrollY = window.scrollY || window.pageYOffset;
+        // Animate hue between 26 (orange) and 46 (yellow-orange)
+        const hue = 26 + (Math.sin(scrollY / 300) * 10 + 10); // 26-46
+        if (sidebarRef.current) {
+          sidebarRef.current.style.setProperty('--sidebar-accent', `${hue} 100% 50%`);
+        }
+      };
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     if (collapsible === "none") {
       return (
@@ -212,7 +228,7 @@ const Sidebar = React.forwardRef<
 
     return (
       <div
-        ref={ref}
+        ref={sidebarRef}
         className="group peer hidden md:block text-sidebar-foreground"
         data-state={state}
         data-collapsible={state === "collapsed" ? collapsible : ""}
