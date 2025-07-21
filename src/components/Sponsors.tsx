@@ -1,28 +1,14 @@
-const Sponsors = () => {
+const  Sponsors = () => {
   const sponsorTiers = [
     {
-      title: "Title Sponsor",
-      description: "Premier partnership with maximum visibility",
-      benefits: ["Keynote speaker slot", "Logo on all materials", "Dedicated booth space", "Social media promotion"],
+      title: "Devfolio",
+      logo : 'https://raw.githubusercontent.com/devfolioco/brand-assets/f523906e2faeabd9e9f12d4ba62f53aa5b45b385/Logo%20+%20Text%20-%20White/Devfolio%20-%20White.svg',
       color: "primary"
     },
     {
-      title: "Platinum Sponsors",
-      description: "Premium sponsorship with extensive benefits",
-      benefits: ["Speaker session", "Large logo placement", "Swag distribution", "Mentorship opportunities"],
+      title: "ETH India",
+      logo : 'https://github.com/ETHIndia/brand-assets/blob/master/On%20Dark/ETHIndia.png?raw=true',
       color: "secondary"
-    },
-    {
-      title: "Gold Sponsors",
-      description: "Significant brand exposure and engagement",
-      benefits: ["Medium logo placement", "Booth space", "Resume access", "Networking opportunities"],
-      color: "accent"
-    },
-    {
-      title: "Silver Sponsors",
-      description: "Supporting partnership with brand visibility",
-      benefits: ["Small logo placement", "Swag inclusion", "Digital promotion", "Event recognition"],
-      color: "muted"
     }
   ];
 
@@ -31,7 +17,7 @@ const Sponsors = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-primary mb-6">
-            Our Sponsors
+              Sponsors
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-8"></div>
           <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
@@ -39,29 +25,16 @@ const Sponsors = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        {/* Centered sponsor tiers grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-0 mb-8 justify-center items-center">
           {sponsorTiers.map((tier, index) => (
-            <div key={index} className="card-cyber text-center group">
-              <div className={`w-16 h-16 mx-auto mb-4 rounded-full border-2 border-${tier.color} flex items-center justify-center`}>
-                <div className={`w-8 h-8 rounded-full bg-${tier.color}`}></div>
+            <div key={index} className="card-cyber text-center group mx-auto my-4">
+              <div>
+                <img src={tier.logo} className="m-4 md:w-[10vw] w-[60vw]" />
               </div>
-              <h3 className="text-xl font-orbitron font-semibold text-foreground mb-3">
-                {tier.title}
-              </h3>
-              <p className="text-muted-foreground mb-4 text-sm">
-                {tier.description}
-              </p>
-              <ul className="space-y-2">
-                {tier.benefits.map((benefit, benefitIndex) => (
-                  <li key={benefitIndex} className="text-sm text-foreground/80 flex items-center">
-                    <div className={`w-2 h-2 rounded-full bg-${tier.color} mr-2 flex-shrink-0`}></div>
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
-        </div>
+        </div>  
 
         {/* Sponsor logos placeholder */}
         <div className="text-center">

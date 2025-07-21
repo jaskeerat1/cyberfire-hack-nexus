@@ -69,7 +69,12 @@ const Timeline = () => {
 
           <div className="space-y-8">
             {timelineEvents.map((event, index) => (
-              <div key={index} className="relative flex items-start gap-8">
+              <div
+                key={index}
+                className="relative flex items-start gap-8"
+                data-aos={index % 4 === 0 ? "fade-up" : index % 4 === 1 ? "fade-right" : index % 4 === 2 ? "fade-left" : "zoom-in"}
+                data-aos-delay={index * 80}
+              >
                 {/* Timeline dot */}
                 <div className={`relative z-10 w-16 h-16 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
                   event.status === 'completed' 
