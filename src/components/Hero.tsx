@@ -1,7 +1,5 @@
 import { Button } from "@/components/ui/button";
 
-const NAVBAR_HEIGHT = 64; // 4rem
-
 const Hero = () => {
   return (
     <section className="relative flex items-center justify-center overflow-hidden min-h-[calc(100vh-4rem)] pt-16">
