@@ -28,9 +28,6 @@ const Index = () => {
       <section data-aos="zoom-in"  id="sponsors">
         <Sponsors />
       </section>
-      {/* <section data-aos="fade-up"  id="mentors">
-        <Mentors />
-      </section> */}
       <section data-aos='fade-up' id="organizers">
         <Oragnizers />
       </section> 

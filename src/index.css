@@ -9,6 +9,9 @@ All colors MUST be HSL.
 *{
   scroll-behavior: smooth;
 }
+html {
+  overflow-x: hidden;
+}
 
 @layer base {
   :root {
@@ -30,8 +33,9 @@ All colors MUST be HSL.
     --primary-foreground: 0 0% 7%; /* keep as is */
 
     /* Ember orange secondary (#ff6f00) */
-    --secondary: 26 100% 50%;
-    --secondary-foreground: 0 0% 100%;
+    /* --secondary: 26 100% 50%;
+    --secondary-foreground: 0 0% 100%; */
+    --secondary: 0 0% 100%;
 
     /* Cool gray for muted text (#b0b0b0) */
     --muted: 264 49% 20%;
@@ -186,6 +190,7 @@ All colors MUST be HSL.
     animation: pulse-cyber 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 }
+
 
 .nav-underline {
   position: relative;

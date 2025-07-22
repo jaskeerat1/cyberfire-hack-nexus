@@ -66,24 +66,13 @@ export default function Contact() {
           </form>
           <span className="block mt-4 text-center text-primary font-semibold min-h-[1.5em]">{result}</span>
         </div>
-        {/* ...rest of the Contact section: socials, WhatsApp, etc. ... */}
-        <div className="mt-12 text-center">
-          <h4 className="text-lg font-orbitron font-semibold text-primary mb-4">Follow Us</h4>
-          <div className="flex gap-3 justify-center">
-            <a href="https://x.com/geekroomgtbit?s=21" rel="noopener noreferrer" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
-              <span className="text-primary"><Twitter /></span>
-            </a>
-            <a href="https://www.instagram.com/geekroom_gtbit?igsh=end6aGIyMG1icmhv&utm_source=qr" rel="noopener noreferrer" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
-              <span className="text-primary"><Instagram /></span>
-            </a>
-          </div>
-        </div>
+        
         <div className="flex justify-center mt-8 mb-2">
           <a
             href="https://chat.whatsapp.com/DSDffqnNRtRDTRHgCNfwJi?mode=r_t"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary text-secondary-foreground font-orbitron font-bold shadow hover:bg-secondary/90 transition-all text-base"
+            className="inline-flex items-center text-black gap-2 px-6 py-3 rounded-lg bg-secondary font-orbitron font-bold shadow hover:bg-secondary/90 transition-all text-base"
           >
             <img src="https://images.seeklogo.com/logo-png/16/2/whatsapp-logo-png_seeklogo-168310.png" className="w-6" />
             Join our WhatsApp Community
