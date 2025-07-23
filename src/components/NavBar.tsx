@@ -17,7 +17,7 @@ export default function NavBar() {
     <header className="top-0 z-30 w-full bg-background/80 backdrop-blur border-b border-border shadow-sm sticky">
       <nav className="max-w-6x  l mx-auto flex items-center justify-between px-4 py-3">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
+        <a href="#" className="flex items-center gap-2 cursor-target">
           <img src="/lovable-uploads/logo-removebg-preview.png" alt="Hack Odyssey Logo" className="w-10 h-10 logo-transparent-bg" />
           <span className="font-orbitron font-bold text-xl text-secondary tracking-widest">Hack Odyssey</span>
         </a>
@@ -29,7 +29,7 @@ export default function NavBar() {
                 <NavigationMenuItem key={link.name}>
                   <NavigationMenuLink
                     href={link.href}
-                    className="font-medium text-muted-foreground hover:text-primary transition-colors px-2 py-1 relative"
+                    className="font-medium text-muted-foreground cursor-target hover:text-primary transition-colors px-2 py-1 relative"
                   >
                     <span className="nav-underline-text">{link.name}</span>
                   </NavigationMenuLink>
@@ -37,7 +37,7 @@ export default function NavBar() {
               ))}
             </NavigationMenuList>
           </NavigationMenu>
-          <Button className="btn-primary ml-4 px-6 py-2 text-base font-orbitron" size="sm">
+          <Button className="btn-primary ml-4 px-6 py-2 text-base font-orbitron cursor-target" size="sm">
             Register
           </Button>
         </div>
@@ -66,7 +66,7 @@ export default function NavBar() {
                 <span className="nav-underline-text">{link.name}</span>
               </a>
             ))}
-            <Button className="btn-primary mt-2 w-full font-orbitron" size="sm">
+            <Button className="btn-primary mt-2 w-full font-orbitron cursor-target" size="sm">
               Register
             </Button>
           </div>

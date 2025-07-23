@@ -3,7 +3,7 @@ import About from "@/components/About";
 import Vision from "@/components/Vision";
 import Timeline from "@/components/Timeline";
 import Sponsors from "@/components/Sponsors";
-import Mentors from "@/components/Mentors";
+import TargetCursor from "@/components/TargetCursor";
 import Oragnizers from '@/components/Organizers';
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -12,6 +12,10 @@ import NavBar from "@/components/NavBar";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <TargetCursor 
+        spinDuration={2}
+        hideDefaultCursor={true}
+      />
       <NavBar />
       <section data-aos="fade-up">
         <Hero />

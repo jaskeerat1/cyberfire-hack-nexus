@@ -46,8 +46,34 @@ const About = () => {
             <h3 className="font-orbitron font-semibold text-foreground mb-2">Hours</h3>
             <p className="text-muted-accessible">Non-stop coding</p>
           </div>
+
           
           <div className="text-center">
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl font-orbitron font-bold text-primary">100+</span>
+            </div>
+            <h3 className="font-orbitron font-semibold text-foreground mb-2">Participants</h3>
+            <p className="text-muted-accessible">Talented developers</p>
+          </div>
+
+          <div className="text-center">
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl font-orbitron font-bold text-primary">₹50K+</span>
+            </div>
+            <h3 className="font-orbitron font-semibold text-foreground mb-2">Prizes</h3>
+            <p className="text-muted-accessible">Total prize pool</p>
+          </div>
+          
+          
+          <div className="text-center">
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl font-orbitron font-bold text-primary">10+</span>
+            </div>
+            <h3 className="font-orbitron font-semibold text-foreground mb-2">Mentors</h3>
+            <p className="text-muted-accessible">Industry experts</p>
+          </div>
+          
+          {/* <div className="text-center">
             <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl font-orbitron font-bold text-secondary">100+</span>
             </div>
@@ -69,7 +95,7 @@ const About = () => {
             </div>
             <h3 className="font-orbitron font-semibold text-foreground mb-2">Mentors</h3>
             <p className="text-muted-accessible">Industry experts</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

@@ -79,7 +79,7 @@ const Footer = () => {
                 <li key={index}>
                   <a 
                     href={link.href} 
-                    className="text-muted-foreground transition-all font-medium text-base hover:text-primary hover:underline hover:underline-offset-4"
+                    className="text-muted-foreground transition-all font-medium text-base hover:text-primary hover:underline hover:underline-offset-4 cursor-target"
                   >
                     {link.name}
                   </a>
