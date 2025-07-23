@@ -286,7 +286,7 @@ const TargetCursor = ({
   }, [spinDuration]);
 
   return (
-    <div ref={cursorRef} className="target-cursor-wrapper">
+    <div ref={cursorRef} className="target-cursor-wrapper hidden md:block">
       <div className="target-cursor-dot" />
       <div className="target-cursor-corner corner-tl" />
       <div className="target-cursor-corner corner-tr" />
