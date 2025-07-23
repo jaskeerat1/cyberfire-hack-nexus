@@ -4,13 +4,13 @@ const Timeline = () => {
       time: "Day 1 - 10:00 AM",
       title: "Opening Ceremony",
       description: "Welcome address, rules briefing, and team formation",
-      status: "completed"
+      status: "upcoming"
     },
     {
       time: "Day 1 - 12:00 PM",
       title: "Hacking Begins",
       description: "48-hour coding marathon officially starts",
-      status: "active"
+      status: "upcoming"
     },
     {
       time: "Day 1 - 2:00 PM",

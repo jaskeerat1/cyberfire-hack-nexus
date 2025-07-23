@@ -199,7 +199,7 @@ const CarouselPrevious = React.forwardRef<
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
-    <Button
+    <Button className={cn("cursor-target", className)}
       ref={ref}
       variant={variant}
       size={size}
@@ -228,7 +228,7 @@ const CarouselNext = React.forwardRef<
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
-    <Button
+    <Button className="cursor-target"
       ref={ref}
       variant={variant}
       size={size}

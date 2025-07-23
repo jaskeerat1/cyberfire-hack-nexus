@@ -59,7 +59,7 @@ export default function Contact() {
             ></textarea>
             <button
               type="submit"
-              className="btn-primary px-8 py-3 rounded-lg font-orbitron font-bold text-lg shadow hover:scale-105 transition-all"
+              className="btn-primary px-8 py-3 rounded-lg font-orbitron font-bold text-lg shadow hover:scale-105 transition-all cursor-target"
             >
               Submit Form
             </button>

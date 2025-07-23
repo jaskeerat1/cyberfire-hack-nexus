@@ -45,7 +45,7 @@ const  Sponsors = () => {
             Join us in empowering the next generation of tech innovators
           </p>
           <div className="inline-block">
-            <a href="mailto:collab.geekroom@gmail.com" className="btn-cyber inline-block">
+            <a href="mailto:collab.geekroom@gmail.com" className="btn-cyber inline-block cursor-target">
               Become a Sponsor
             </a>
           </div>
